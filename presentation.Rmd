@@ -1,0 +1,57 @@
+---
+title: "Course Project - Shiny Application and Reproducible Pitch"
+author: "Rufo I. Marasigan Jr."
+date: "February 6, 2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## The Course Project
+
+This is a deliverable for the course Developing Data Products as part of the Coursera Data Science Specialization.
+
+### Instructions:
+
+    1. Write a shiny application with associated supporting documentation. 
+      The documentation should be thought of as whatever a user will 
+      need to get started using your  application.
+    2. Deploy the application on Rstudio's shiny server
+    3. Share the application link by pasting it into the provided text box
+    4. Share your server.R and ui.R code on github
+
+
+## How to use the application
+
+Using the data from Diameter, Height and Volume for Black Cherry Trees (R trees dataset), we fit a linear model to predict a Tree height based on the tree diamter and tree volume.
+
+The application is running on https://rmjr.shinyapps.io/finalproject/)
+
+ui.R, and Server.R Code in my github repository
+(https://github.com/rmarasiganjr/Course-Project-Shiny-Application-and-Reproducible-Pitch)
+
+## Trees Dataset {.smaller}
+Dataset contains the Diameter, Height and Volume for Black Cherry Trees.
+
+- Girth 	numeric 	Tree diameter (rather than girth, actually) in inches
+- Height	numeric 	Height in ft
+- Volume	numeric 	Volume of timber in cubic ft
+```{r summary, echo = FALSE}
+summary(trees)
+```
+Source
+Ryan, T. A., Joiner, B. L. and Ryan, B. F. (1976) The Minitab Student Handbook. Duxbury Press.
+
+References
+Atkinson, A. C. (1985) Plots, Transformations and Regression. Oxford University Press. 
+
+## Plot
+
+```{r plot, echo = FALSE}
+library(HistData)
+data(trees)
+plot(jitter(trees$Height) ~ trees$Girth,xlab="Average Diameter of the Cheery Trees (in ft)",ylab="Height of the Cheery Trees (in ft)",main="Scatterplot of the Black Cherry Trees",pch=19,frame.plot=FALSE,col="light blue")
+legend(65,80,pch=c(19,19),col=c("Red"),c("Trees"),bty="o",cex=.8)
+```
